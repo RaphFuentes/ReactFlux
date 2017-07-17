@@ -1,13 +1,49 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var AppConstants = require('../constants/AppConstants');
+import AppDispatcher from "../dispatcher/AppDispatcher";
+import AppConstants from "../constants/AppConstants";
 
-var AppActions = {
-  addItem: function(item){
-    AppDispatcher.handleViewAction({
-      actionType:AppConstants.ADD_ITEM,
-      item: item
-    })
-  }
-}
+const AppActions = {
 
-module.exports = AppActions
+	getNotifConfig(key){
+		AppDispatcher.handleViewAction({
+      	actionType:AppConstants.GET_NOTIF_CONFIG,
+      	data: key
+		});
+	},
+
+	updateNotifConfig(){
+		AppDispatcher.handleViewAction({
+      	actionType:AppConstants.UPDATE_NOTIF_CONFIG,
+		});
+	},
+
+	updateAllNotifStatus(status){
+		AppDispatcher.handleViewAction({
+      	actionType:AppConstants.UPDATE_ALLNOTIF_STATUS,
+      	data: status
+		});
+	},
+
+	updateStdTxtStatus(status){
+		AppDispatcher.handleViewAction({
+      	actionType:AppConstants.UPDATE_STDTXT_STATUS,
+      	data: status
+		});
+	},
+
+	updateCustomText(text){
+		AppDispatcher.handleViewAction({
+      	actionType:AppConstants.UPDATE_CUSTOM_TXT,
+      	data: text
+		});
+	},
+
+	updateActiveEmail(email){
+		AppDispatcher.handleViewAction({
+      	actionType:AppConstants.UPDATE_ACTIVE_EMAIL,
+      	data: email
+		});
+	}
+
+};
+
+export default AppActions;	
